@@ -15,15 +15,15 @@
     <meta name="keywords" content="Javascript," />
   
 
-  <meta name="description" content="你所有需要知道的关于Javascript中的this总的原则：函数调用&#x3D;修改执行环境   执行环境(execution context):     全局执行环境在任何代码执行前已创建 但执行一个函数（function）时候，会创造一个新的执行环境，此时存在一个memory creation 阶段包含： Scope创建： 哪些变量（variable）或者函数（function）是此执行环境可以用到的">
+  <meta name="description" content="7.0 你所有需要知道的关于Javascript中的this 执行环境(execution context):    全局执行环境在任何代码执行前已创建 但执行一个函数（function）时候，会创造一个新的执行环境，此时存在一个memory creation 阶段包含： A. Scope创建： 哪些变量（variable）或者函数（function）是此执行环境可以用到的，Hoist B. Sc">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript中的this">
 <meta property="og:url" content="http://jcwu.ml/2020/02/03/JavaScript%E4%B8%AD%E7%9A%84this/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="你所有需要知道的关于Javascript中的this总的原则：函数调用&#x3D;修改执行环境   执行环境(execution context):     全局执行环境在任何代码执行前已创建 但执行一个函数（function）时候，会创造一个新的执行环境，此时存在一个memory creation 阶段包含： Scope创建： 哪些变量（variable）或者函数（function）是此执行环境可以用到的">
+<meta property="og:description" content="7.0 你所有需要知道的关于Javascript中的this 执行环境(execution context):    全局执行环境在任何代码执行前已创建 但执行一个函数（function）时候，会创造一个新的执行环境，此时存在一个memory creation 阶段包含： A. Scope创建： 哪些变量（variable）或者函数（function）是此执行环境可以用到的，Hoist B. Sc">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-03T16:43:56.000Z">
-<meta property="article:modified_time" content="2020-02-05T20:13:33.926Z">
+<meta property="article:modified_time" content="2020-02-05T20:39:51.748Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Javascript">
 <meta name="twitter:card" content="summary">
@@ -198,7 +198,7 @@ ga('send', 'pageview');
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">Posts List</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#你所有需要知道的关于Javascript中的this"><span class="toc-text">你所有需要知道的关于Javascript中的this</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#this被创建以后，总是指向执行时候的leaidng-parent-object："><span class="toc-text">this被创建以后，总是指向执行时候的leaidng parent object：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其它例子："><span class="toc-text">其它例子：</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#7-0-你所有需要知道的关于Javascript中的this"><span class="toc-text">7.0 你所有需要知道的关于Javascript中的this</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-0-1-this被创建以后，总是指向执行时候的leaidng-parent-object"><span class="toc-text">7.0.1 this被创建以后，总是指向执行时候的leaidng parent object</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-0-2-其它例子："><span class="toc-text">7.0.2 其它例子：</span></a></li></ol></li></ol>
   </div>
 
 
@@ -239,27 +239,29 @@ ga('send', 'pageview');
 
   <div class="article-content">
     
-      <h2 id="你所有需要知道的关于Javascript中的this"><a href="#你所有需要知道的关于Javascript中的this" class="headerlink" title="你所有需要知道的关于Javascript中的this"></a>你所有需要知道的关于Javascript中的<code>this</code></h2><p style="text-align: center; border:  4px solid olive ">总的原则：函数调用=修改执行环境</p>
-
-<blockquote>
+      <h2 id="7-0-你所有需要知道的关于Javascript中的this"><a href="#7-0-你所有需要知道的关于Javascript中的this" class="headerlink" title="7.0 你所有需要知道的关于Javascript中的this"></a>7.0 你所有需要知道的关于Javascript中的<code>this</code></h2><blockquote>
 <p>执行环境(execution context):  </p>
-</blockquote>
 <ul>
 <li>全局执行环境在任何代码执行<code>前</code>已创建</li>
-<li>但执行一个函数（function）时候，会创造一个<code>新</code>的执行环境，此时存在一个<code>memory creation 阶段</code>包含：<ol>
-<li>Scope创建： 哪些<code>变量</code>（variable）或者<code>函数</code>（function）是此执行环境可以用到的，Hoist</li>
-<li>Scope Chain: 每一个执行环境还需要知道其外部包裹的scope，最终到最上层全局的scope作为一个链（chain），此链不包括sibling scope （同等级的外部函数）或者（children scope）此函数内部的scope<br>所以:<ul>
+<li>但执行一个函数（function）时候，会创造一个<code>新</code>的执行环境，此时存在一个<code>memory creation 阶段</code>包含：<ul>
+<li>A. Scope创建： 哪些<code>变量</code>（variable）或者<code>函数</code>（function）是此执行环境可以用到的，Hoist<ul>
+<li>B. Scope Chain: 每一个执行环境还需要知道其外部包裹的scope，最终到最上层全局的scope作为一个链（chain），此链不包括sibling scope （同等级的外部函数）或者（children scope）此函数内部的scope<br>所以:<ul>
 <li>a.全局变量是在此函数使用的，但是此函数里的变量无法在全局使用</li>
 <li>b. 其它函数的局部变量也不能在此函数引用</li>
 </ul>
 </li>
-</ol>
-</li>
-<li>this被创建，总是指向<code>当前代码</code>的执行环境。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(one) <span class="comment">// undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(two)  <span class="comment">// ReferenceError: two is not defined</span></span><br><span class="line"><span class="built_in">console</span>.log(three) <span class="comment">// ReferenceError: three is not defined</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> one = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunc</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(one) <span class="comment">// 1</span></span><br><span class="line">  <span class="built_in">console</span>.log(two) <span class="comment">// undefined</span></span><br><span class="line">  <span class="built_in">console</span>.log(three) <span class="comment">// ReferenceError: three is not defined</span></span><br><span class="line">  <span class="keyword">var</span> two = <span class="number">2</span></span><br><span class="line">  <span class="built_in">console</span>.log(two) <span class="comment">// 2</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myOtherFunc</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(one) <span class="comment">// 1</span></span><br><span class="line">  <span class="built_in">console</span>.log(two) <span class="comment">// ReferenceError: two is not defined</span></span><br><span class="line">  <span class="built_in">console</span>.log(three) <span class="comment">// undefined</span></span><br><span class="line">  <span class="keyword">var</span> three = <span class="number">3</span></span><br><span class="line">  <span class="built_in">console</span>.log(three) <span class="comment">// 3</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">myFunc()</span><br><span class="line">myOtherFunc()</span><br></pre></td></tr></table></figure>
-
+</ul>
+<ul>
+<li>this被创建，总是指向<code>当前代码</code>的执行环境。</li>
+</ul>
 </li>
 </ul>
-<h3 id="this被创建以后，总是指向执行时候的leaidng-parent-object："><a href="#this被创建以后，总是指向执行时候的leaidng-parent-object：" class="headerlink" title="this被创建以后，总是指向执行时候的leaidng parent object："></a>this被创建以后，总是指向执行时候的<code>leaidng parent object</code>：</h3><ul>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(one) <span class="comment">// undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(two)  <span class="comment">// ReferenceError: two is not defined</span></span><br><span class="line"><span class="built_in">console</span>.log(three) <span class="comment">// ReferenceError: three is not defined</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> one = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunc</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(one) <span class="comment">// 1</span></span><br><span class="line">  <span class="built_in">console</span>.log(two) <span class="comment">// undefined</span></span><br><span class="line">  <span class="built_in">console</span>.log(three) <span class="comment">// ReferenceError: three is not defined</span></span><br><span class="line">  <span class="keyword">var</span> two = <span class="number">2</span></span><br><span class="line">  <span class="built_in">console</span>.log(two) <span class="comment">// 2</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myOtherFunc</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(one) <span class="comment">// 1</span></span><br><span class="line">  <span class="built_in">console</span>.log(two) <span class="comment">// ReferenceError: two is not defined</span></span><br><span class="line">  <span class="built_in">console</span>.log(three) <span class="comment">// undefined</span></span><br><span class="line">  <span class="keyword">var</span> three = <span class="number">3</span></span><br><span class="line">  <span class="built_in">console</span>.log(three) <span class="comment">// 3</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">myFunc()</span><br><span class="line">myOtherFunc()</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-0-1-this被创建以后，总是指向执行时候的leaidng-parent-object"><a href="#7-0-1-this被创建以后，总是指向执行时候的leaidng-parent-object" class="headerlink" title="7.0.1 this被创建以后，总是指向执行时候的leaidng parent object"></a>7.0.1 this被创建以后，总是指向执行时候的<code>leaidng parent object</code></h3><ul>
 <li>对于在全局中直接使用，在任何函数外部：this对应的是<code>window</code>，可相互交换使用.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log (<span class="keyword">this</span>===<span class="built_in">window</span>); <span class="comment">//true</span></span><br><span class="line"></span><br><span class="line">a=<span class="number">37</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a); <span class="comment">// 37</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">this</span>.b=<span class="string">"MDN"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.b); <span class="comment">//"MDN"</span></span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">//"MDN"</span></span><br></pre></td></tr></table></figure></li>
 <li>this在函数内部的但是也在全局中直接调用function(), 实际上window.function(), 所以this指向的是window。<ul>
 <li>不在严格模式下， this默认指向全局对象.  在严格模式下面，this 将指向undefined<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//在浏览器中：</span></span><br><span class="line">f1() === <span class="built_in">window</span>;   <span class="comment">//在浏览器中，全局对象是window</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//在Node中，严格模式下</span></span><br><span class="line">f1() === global;  <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure></li>
@@ -270,7 +272,7 @@ ga('send', 'pageview');
 </li>
 </ul>
 <p>xs</p>
-<h3 id="其它例子："><a href="#其它例子：" class="headerlink" title="其它例子："></a>其它例子：</h3><ul>
+<h3 id="7-0-2-其它例子："><a href="#7-0-2-其它例子：" class="headerlink" title="7.0.2 其它例子："></a>7.0.2 其它例子：</h3><ul>
 <li>例1: object中有嵌套函数，在执行myObj.myMethod()依次执行两个命令：<ul>
 <li><ol>
 <li>调用函数myFunc()，设置<code>新的环境对象</code>以及this,此时myFunc()前面没有<code>leading parents object</code>,所以this自动指向window；</li>
@@ -300,7 +302,6 @@ ga('send', 'pageview');
 
 <blockquote>
 <p>执行栈(execution stack)</p>
-</blockquote>
 <ol>
 <li>如果有2个函数调用(2个函数的关系可以是包含，或者同级别)，现在就有3个<code>execution contexts</code>（执行环境）,除了此函数的2个，还包括全局的<code>execution context</code>.</li>
 <li>新的execution context建立以后，会建立在执行栈的<code>栈顶</code>，所以当开始运行程序时，首先进入栈的是全局的环境，当开始执行其它函数时候，把新的执行环境压入栈顶</li>
@@ -308,6 +309,7 @@ ga('send', 'pageview');
 <li>当执行函数a，如果有函数b要执行（比如b是a的子函数），把a的执行环境压栈，建立b的执行环境</li>
 <li>当执行完b以后，b的执行环境从执行栈中删除，进入a的执行环境，当指向完a函数，删除a的执行环境，此时当没有其它函数执行时，返回全局执行环境。<br>所以JavaScript是<code>单线程</code>。</li>
 </ol>
+</blockquote>
 <p>参考/reference：<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/this" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/this</a><br><a href="https://codeburst.io/js-demystified-04-execution-context-97dea52c8ac6" target="_blank" rel="noopener">https://codeburst.io/js-demystified-04-execution-context-97dea52c8ac6</a></p>
 
     
