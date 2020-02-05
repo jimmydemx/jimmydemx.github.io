@@ -23,7 +23,7 @@
 <meta property="og:description" content="7.0 你所有需要知道的关于Javascript中的this 执行环境(execution context):    全局执行环境在任何代码执行前已创建 但执行一个函数（function）时候，会创造一个新的执行环境，此时存在一个memory creation 阶段包含： A. Scope创建： 哪些变量（variable）或者函数（function）是此执行环境可以用到的，Hoist B. Sc">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-03T16:43:56.000Z">
-<meta property="article:modified_time" content="2020-02-05T20:39:51.748Z">
+<meta property="article:modified_time" content="2020-02-05T20:43:33.612Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Javascript">
 <meta name="twitter:card" content="summary">
@@ -269,9 +269,9 @@ ga('send', 'pageview');
 </li>
 <li>作为对象的方法，Object.method, 此时leading parents objects 指向的是执行时候的<code>此object</code>，<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.a = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    a:<span class="number">1</span>,</span><br><span class="line">    getA:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.a);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.getA();       <span class="comment">//输出1，作为对象的方法调用，this指向此obj</span></span><br><span class="line"><span class="keyword">var</span> x = obj.getA;</span><br><span class="line">x();   <span class="comment">//输出2，执行此语句时候相当于window.x(), 而不是指向obj</span></span><br></pre></td></tr></table></figure>
 
+
 </li>
 </ul>
-<p>xs</p>
 <h3 id="7-0-2-其它例子："><a href="#7-0-2-其它例子：" class="headerlink" title="7.0.2 其它例子："></a>7.0.2 其它例子：</h3><ul>
 <li>例1: object中有嵌套函数，在执行myObj.myMethod()依次执行两个命令：<ul>
 <li><ol>
