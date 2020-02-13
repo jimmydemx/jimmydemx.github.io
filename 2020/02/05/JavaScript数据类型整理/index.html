@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>JavaScript数据类型整理(1) | Hexo</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="JavaScript," />
+  
+
+  <meta name="description" content="1 JavaScript的数据类型1.1 一般数据Javascript不区分整数和浮点数（数据类型一致），表示2进制，8进制以及16进制的方法与C语言一致 123456123; &#x2F;&#x2F; 整数1230.456; &#x2F;&#x2F; 浮点数0.4561.2345e3; &#x2F;&#x2F; 科学计数法表示1.2345x1000，等同于1234.5-99; &#x2F;&#x2F; 负数NaN; &#x2F;&#x2F; NaN表示Not a Number，当无法计算结果时">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript数据类型整理(1)">
+<meta property="og:url" content="http://jcwu.ml/2020/02/05/JavaScript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%95%B4%E7%90%86/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1 JavaScript的数据类型1.1 一般数据Javascript不区分整数和浮点数（数据类型一致），表示2进制，8进制以及16进制的方法与C语言一致 123456123; &#x2F;&#x2F; 整数1230.456; &#x2F;&#x2F; 浮点数0.4561.2345e3; &#x2F;&#x2F; 科学计数法表示1.2345x1000，等同于1234.5-99; &#x2F;&#x2F; 负数NaN; &#x2F;&#x2F; NaN表示Not a Number，当无法计算结果时">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-02-05T21:33:29.000Z">
+<meta property="article:modified_time" content="2020-02-07T22:24:03.744Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    
+<link rel="stylesheet" href="/css/personal-style.css">
+
+  
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-38189205-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/atom.xml"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/Custom/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            自定义
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">Posts List</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-JavaScript的数据类型"><span class="toc-text">1 JavaScript的数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-一般数据"><span class="toc-text">1.1 一般数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-字符串"><span class="toc-text">1.2 字符串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-逻辑运算"><span class="toc-text">1.3 逻辑运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-比较运算符"><span class="toc-text">1.4  比较运算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-数组"><span class="toc-text">1.5 数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-6-数组的结构解析-对数组中每一个元素同时处理"><span class="toc-text">1.6 数组的结构解析: 对数组中每一个元素同时处理</span></a></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-JavaScript数据类型整理" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">JavaScript数据类型整理(1)</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2020.02.05</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>John Doe</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/%E4%B8%AD%E6%96%87/">中文</a> / <a class="article-category-link" href="/categories/%E4%B8%AD%E6%96%87/%E8%AE%A1%E7%AE%97%E6%9C%BA/">计算机</a> / <a class="article-category-link" href="/categories/%E4%B8%AD%E6%96%87/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%89%8D%E7%AB%AF/">前端</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h1 id="1-JavaScript的数据类型"><a href="#1-JavaScript的数据类型" class="headerlink" title="1 JavaScript的数据类型"></a>1 JavaScript的数据类型</h1><h2 id="1-1-一般数据"><a href="#1-1-一般数据" class="headerlink" title="1.1 一般数据"></a>1.1 一般数据</h2><p>Javascript不区分整数和浮点数（数据类型<code>一致</code>），表示2进制，8进制以及16进制的方法与C语言一致</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">123</span>; <span class="comment">// 整数123</span></span><br><span class="line"><span class="number">0.456</span>; <span class="comment">// 浮点数0.456</span></span><br><span class="line"><span class="number">1.2345e3</span>; <span class="comment">// 科学计数法表示1.2345x1000，等同于1234.5</span></span><br><span class="line"><span class="number">-99</span>; <span class="comment">// 负数</span></span><br><span class="line"><span class="literal">NaN</span>; <span class="comment">// NaN表示Not a Number，当无法计算结果时用NaN表示</span></span><br><span class="line"><span class="literal">Infinity</span>; <span class="comment">// Infinity表示无限大，当数值超过了JavaScript的Number所能表示的最大值时，就表示为Infinity</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>NaN与所有其它数不等（包括它自己) NaN===NaN //false, 唯一能够判断NaN的方法是通过isNaN(…)</li>
+<li>浮点数计算会产生误差 1 / 3 不等于 (1 - 2 / 3)，2数相等，需要加入精度</li>
+<li><code>null</code>在JavaScript中表示空，它和0(数值)以及’’(长度为0的字符串)不同</li>
+<li>undefined用于判断<code>函数</code>参数parameter是否传递有用。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">isNaN</span>(<span class="literal">NaN</span>); <span class="comment">// true- 浮点数计算会产生误差</span></span><br><span class="line"><span class="number">1</span> / <span class="number">3</span> === (<span class="number">1</span> - <span class="number">2</span> / <span class="number">3</span>); <span class="comment">// false</span></span><br><span class="line"> <span class="built_in">Math</span>.abs(<span class="number">1</span> / <span class="number">3</span> - (<span class="number">1</span> - <span class="number">2</span> / <span class="number">3</span>)) &lt; <span class="number">0.0000001</span>; <span class="comment">// true  根据精度来控制两个值之间的差异，</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="1-2-字符串"><a href="#1-2-字符串" class="headerlink" title="1.2 字符串"></a>1.2 字符串</h2><p>和python相同使用<code>&quot;</code> 或者<code>&#39;</code>，在字符串中需要使用转意字符来表示比如 <code>&#39;I\&#39;m \&quot;OK\&quot;!&#39;;</code>结果是 <code>I&#39;m &quot;OK&quot;!</code>，和C语言一样,\可以转义其它字符，比如\n表示换行,\t是制表符。ASCII字符可以以<code>\x##</code>的十六进制表示，’\x41’; // 完全等同于 ‘A’, 而\u####表示一个<code>Unicode</code>字符，比如 <code>&#39;\u4e2d\u6587&#39;; // 完全等同于 &#39;中文&#39;</code>。</p>
+<ul>
+<li>多行字符串：使用反引号`…`，比如：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">`这是一个</span></span><br><span class="line"><span class="string">多行</span></span><br><span class="line"><span class="string">字符串`</span>;</span><br></pre></td></tr></table></figure></li>
+<li>字符串相加: 和Python一样 。”aaaa”+”bbbb”</li>
+<li>字符串属性与方法： <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s=<span class="string">"Whatever you bitch"</span>;</span><br><span class="line">s.length; <span class="comment">//字符串长度</span></span><br><span class="line">s[<span class="number">0</span>]; <span class="comment">//'W'</span></span><br><span class="line">s[<span class="number">0</span>]=<span class="string">'P'</span> <span class="comment">// s[0]仍然是W</span></span><br><span class="line">s.toUpperCase()  <span class="comment">// 变大写</span></span><br><span class="line">s.toLowerCase()  <span class="comment">// 变小写</span></span><br><span class="line">s.indexOf(<span class="string">'Whatever'</span>) <span class="comment">// 返回0 index=0</span></span><br><span class="line">substring(<span class="number">0</span>,<span class="number">5</span>) <span class="comment">// 返回 whate</span></span><br><span class="line">XXXX.toString（）<span class="comment">// 把xxx 变位string</span></span><br><span class="line"><span class="keyword">var</span> a = num.toString(); </span><br><span class="line"><span class="keyword">var</span> b = num.toString(<span class="number">2</span>);</span><br><span class="line"><span class="keyword">var</span> c = num.toString(<span class="number">8</span>); </span><br><span class="line"><span class="keyword">var</span> d = num.toString(<span class="number">16</span>); </span><br><span class="line"><span class="comment">//  2,8，16分别是进制的意思，函数作用是先把xxx转换为xx进制表示，然后再转换为string</span></span><br></pre></td></tr></table></figure>
+<h2 id="1-3-逻辑运算"><a href="#1-3-逻辑运算" class="headerlink" title="1.3 逻辑运算"></a>1.3 逻辑运算</h2>与C语言相通，使用&amp;&amp;，｜｜以及！表示与或非<h2 id="1-4-比较运算符"><a href="#1-4-比较运算符" class="headerlink" title="1.4  比较运算符"></a>1.4  比较运算符</h2>注意：<code>==</code> 会自动转换类型以后再比较，<code>===</code>不会自动转换数据类型。这是JavaScript设计缺陷，所以建议不要使用<code>==</code>进行比较。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">false</span> == <span class="number">0</span>; <span class="comment">// true</span></span><br><span class="line"><span class="literal">false</span> === <span class="number">0</span>; <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<h2 id="1-5-数组"><a href="#1-5-数组" class="headerlink" title="1.5 数组"></a>1.5 数组</h2>和python的list类似<br>一个数组可以包含<code>任意数据类型</code>，比如[1, 2, 3.14, ‘Hello’, null, true]; 创建数组也可以使用圆括号<code>()</code>建立(比如: new Array(1, 2, 3) 但是不建议)</li>
+<li>数组可以重新被<code>索引赋值</code>，但是没有赋的值将产生<code>undefined</code>。这个和python不同。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">arr[<span class="number">5</span>] = <span class="string">'x'</span>;</span><br><span class="line">arr; <span class="comment">// arr变为[1, 2, 3, undefined, undefined, 'x']</span></span><br></pre></td></tr></table></figure></li>
+<li>复制一个数组：使用<code>slice()</code>,但是两个数组不等。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ar arr = [<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>, <span class="string">'D'</span>, <span class="string">'E'</span>, <span class="string">'F'</span>, <span class="string">'G'</span>];</span><br><span class="line"><span class="keyword">var</span> aCopy = arr.slice();</span><br><span class="line">aCopy; <span class="comment">// ['A', 'B', 'C', 'D', 'E', 'F', 'G']</span></span><br><span class="line">aCopy === arr; <span class="comment">// false</span></span><br></pre></td></tr></table></figure></li>
+<li>数组头尾元素添加与删除：<ul>
+<li><code>push()</code>可以在数组<code>末尾</code>添加元素</li>
+<li><code>pop()</code>可以吧array最后的元素删除</li>
+<li><code>unshift</code>和<code>shift</code>分别对应在数组<code>头部</code>增加以及删除元素<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line">arr.push(<span class="string">'A'</span>, <span class="string">'B'</span>); <span class="comment">// 返回Array新的长度: 4</span></span><br><span class="line">arr; <span class="comment">// [1, 2, 'A', 'B']</span></span><br><span class="line">arr.pop(); <span class="comment">// pop()返回'B'</span></span><br><span class="line">arr; <span class="comment">// [1, 2, 'A']</span></span><br><span class="line">arr.pop(); arr.pop(); arr.pop(); <span class="comment">// 连续pop 3次</span></span><br><span class="line">arr; <span class="comment">// []</span></span><br><span class="line">arr.pop(); <span class="comment">// 空数组继续pop不会报错，而是返回undefined</span></span><br><span class="line">arr; <span class="comment">// []</span></span><br><span class="line">arr.unshift(<span class="string">'A'</span>, <span class="string">'B'</span>); <span class="comment">// 返回Array新的长度: 4</span></span><br><span class="line">arr; <span class="comment">// ['A', 'B', 1, 2]</span></span><br><span class="line">arr.shift(); <span class="comment">// 'A'</span></span><br><span class="line">arr; <span class="comment">// ['B', 1, 2]</span></span><br><span class="line">arr.shift(); arr.shift(); arr.shift(); <span class="comment">// 连续shift 3次</span></span><br><span class="line">arr; <span class="comment">// []</span></span><br><span class="line">arr.shift(); <span class="comment">// 空数组继续shift不会报错，而是返回undefined</span></span><br><span class="line">arr; <span class="comment">// []</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>数组头尾元素添加与删除:<ul>
+<li>Array+Array 连接: <code>concat</code>,返回值是<code>一个新的Array</code>, 如果接受的是多维数组，会降维其中元素整合进入<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>];</span><br><span class="line"><span class="keyword">var</span> added = arr.concat([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]);</span><br><span class="line">added; <span class="comment">// ['A', 'B', 'C', 1, 2, 3]</span></span><br><span class="line">arr; <span class="comment">// ['A', 'B', 'C']</span></span><br><span class="line">arr.concat(<span class="number">1</span>, <span class="number">2</span>, [<span class="number">3</span>, <span class="number">4</span>]); <span class="comment">// ['A', 'B', 'C', 1, 2, 3, 4] //降维整合入数组</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>数组元素顺序处理：<ul>
+<li>按照一定顺序排序:<code>sort()</code>；</li>
+<li>反转所有元素： 从<strong>1，2，3</strong>变为<strong>3，2，1</strong>:<code>reverse()</code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'B'</span>, <span class="string">'C'</span>, <span class="string">'A'</span>];</span><br><span class="line">arr.sort();</span><br><span class="line">arr; <span class="comment">// ['A', 'B', 'C']</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="string">'one'</span>, <span class="string">'two'</span>, <span class="string">'three'</span>];</span><br><span class="line">arr.reverse(); </span><br><span class="line">arr; <span class="comment">// ['three', 'two', 'one']</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>与数组的索引相关的操作<ul>
+<li>索引位置：使用<code>indexOf</code>和string类似，可以搜寻一个值的位置，返回<code>索引数</code></li>
+<li>索引截取数组部分：<code>slice</code> 与字符串的<code>substtring</code>类似，用来截取部分元素，返回一个<code>新的array</code></li>
+<li>从指定<code>索引</code>开始(包括该索引号)删除若干元素，然后从该位置开始添加元素：<code>splice()</code></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//indexOf搜寻元素位置</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">10</span>, <span class="number">20</span>, <span class="string">'30'</span>, <span class="string">'xyz'</span>];</span><br><span class="line">arr.indexOf(<span class="number">10</span>); <span class="comment">// 元素10的索引为0</span></span><br><span class="line">arr.indexOf(<span class="number">20</span>); <span class="comment">// 元素20的索引为1</span></span><br><span class="line">arr.indexOf(<span class="number">30</span>); <span class="comment">// 元素30没有找到，返回-1</span></span><br><span class="line">arr.indexOf(<span class="string">'30'</span>); <span class="comment">// 元素'30'的索引为2</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//slice截取部分元素</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>, <span class="string">'D'</span>, <span class="string">'E'</span>, <span class="string">'F'</span>, <span class="string">'G'</span>];</span><br><span class="line">arr.slice(<span class="number">0</span>, <span class="number">3</span>); <span class="comment">// 从索引0开始，到索引3结束，但不包括索引3: ['A', 'B', 'C']</span></span><br><span class="line">arr.slice(<span class="number">3</span>); <span class="comment">// 从索引3开始到结束: ['D', 'E', 'F', 'G']</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//splice 添加删除元素</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="string">'Microsoft'</span>, <span class="string">'Apple'</span>, <span class="string">'Yahoo'</span>, <span class="string">'AOxL'</span>, <span class="string">'Excite'</span>, <span class="string">'Oracle'</span>];</span><br><span class="line"><span class="comment">// 从索引2开始删除3个元素,然后再添加两个元素:</span></span><br><span class="line">arr.splice(<span class="number">2</span>, <span class="number">3</span>, <span class="string">'Google'</span>, <span class="string">'Facebook'</span>); <span class="comment">// 返回删除的元素 ['Yahoo', 'AOL', 'Excite']</span></span><br><span class="line">arr; <span class="comment">// ['Microsoft', 'Apple', 'Google', 'Facebook', 'Oracle']</span></span><br><span class="line"><span class="comment">// 只删除,不添加:</span></span><br><span class="line">arr.splice(<span class="number">2</span>, <span class="number">2</span>); <span class="comment">// ['Google', 'Facebook']</span></span><br><span class="line">arr; <span class="comment">// ['Microsoft', 'Apple', 'Oracle']</span></span><br><span class="line"><span class="comment">// 只添加,不删除:</span></span><br><span class="line">arr.splice(<span class="number">2</span>, <span class="number">0</span>, <span class="string">'Google'</span>, <span class="string">'Facebook'</span>); <span class="comment">// 返回[],因为没有删除任何元素</span></span><br><span class="line">arr; <span class="comment">// ['Microsoft', 'Apple', 'Google', 'Facebook', 'Oracle']</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>字符串成一体: <code>join()</code>可,和python用法类似<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">arr.join(<span class="string">'-'</span>); <span class="comment">// 'A-B-C-1-2-3'</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="1-6-数组的结构解析-对数组中每一个元素同时处理"><a href="#1-6-数组的结构解析-对数组中每一个元素同时处理" class="headerlink" title="1.6 数组的结构解析: 对数组中每一个元素同时处理"></a>1.6 数组的结构解析: 对数组中每一个元素同时处理</h2><ul>
+<li>在ES6开始，JavaScript增加了结构解析，可以通过多个变量形式进行赋值</li>
+<li>可以出现嵌套以及忽略元素，注意保持<code>嵌套</code>时候的层次<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> [x, y, z] = [<span class="string">'hello'</span>, <span class="string">'JavaScript'</span>, <span class="string">'ES6'</span>];</span><br><span class="line"><span class="built_in">console</span>.log(x); <span class="comment">//hello</span></span><br><span class="line"><span class="built_in">console</span>.log(y); <span class="comment">// JavaScript</span></span><br><span class="line"><span class="built_in">console</span>.log(z); <span class="comment">//ES6</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'x = '</span> + x + <span class="string">', y = '</span> + y + <span class="string">', z = '</span> + z); </span><br><span class="line"><span class="comment">//x = hello, y = JavaScript, z = ES6 </span></span><br><span class="line"><span class="keyword">let</span> [a,[c,b]]=[<span class="string">'hello'</span>, [<span class="string">'JavaScript'</span>, <span class="string">'ES6'</span>]]</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">//hello  </span></span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">//ES6 注意只用逗号忽略a与b中间的元素，并且有括号嵌套的情况。</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>参考/Reference:<br><a href="https://www.liaoxuefeng.com/wiki/1022910821149312" target="_blank" rel="noopener">https://www.liaoxuefeng.com/wiki/1022910821149312</a></p>
+
+    
+  </div>
+
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持forsigner</div>
+        <ul>
+        
+          <li class="item">
+            
+              <span>微信扫一扫</span>
+            
+            <img src="/images/qr-wechat.png" alt="">
+          </li>
+        
+          <li class="item">
+            
+              <span>支付宝扫一扫</span>
+            
+            <img src="/images/qr-alipay.png" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2020/02/04/Daily-Spanish-20200204/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2020/02/05/Daily-Spanish-20200205/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">Close</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/atom.xml"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/Custom/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              自定义
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+
+<!-- Gitalk评论插件通用代码 -->
+<div id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script>
+<script>
+const gitalk = new Gitalk({
+  clientID: '277317290454635afa73',
+  clientSecret: '78223c859304da5e8d71bfce136d436c6ff95c37',
+  repo: 'blog-comment',
+  owner: 'forsigner',
+  // 在这里设置一下截取前50个字符串, 这是因为 github 对 label 的长度有了要求, 如果超过
+  // 50个字符串则会报错.
+  // id: location.pathname.split('/').pop().substring(0, 49),
+  id: md5(location.pathname),
+  admin: ['forsigner'],
+  // facebook-like distraction free mode
+  distractionFreeMode: false
+})
+gitalk.render('gitalk-container')
+</script>
+<!-- Gitalk代码结束 -->
+
+
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
