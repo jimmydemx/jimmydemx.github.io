@@ -228,7 +228,6 @@
             
             <div class="markdown-body">
               <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sequence">Alice-&gt;Bob: Hello Bob, how are you?<br>Note right of Bob: Bob thinks<br>Bob--&gt;Alice: I am good thanks!<br></code></pre></td></tr></table></figure>
-
 <pre><code class=" mermaid">%% Example of sequence diagram
   sequenceDiagram
     Alice-&gt;&gt;Bob: Hello Bob, how are you?
@@ -242,7 +241,6 @@
     end
 ​
 </code></pre>
-
 <blockquote>
 <p>forjar su reputación<br>cambio dramástico</p>
 </blockquote>
@@ -443,6 +441,45 @@
 
 
 
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
 
 
 

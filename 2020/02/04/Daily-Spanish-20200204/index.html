@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      317 字
+      318 字
     </span>
   
 
@@ -230,7 +230,8 @@
               <h2 id="impacto-de-SARS-y-el-vinculo-con-el-virus-actual"><a href="#impacto-de-SARS-y-el-vinculo-con-el-virus-actual" class="headerlink" title="impacto de SARS y el vínculo con el virus actual"></a>impacto de SARS y el vínculo con el virus actual</h2><p>@(Coronavirus)[SARS|Wuhan|insalubre]</p>
 <p>en 2002 un brote de otro coronavirus, dejó cientos de muertos。</p>
 <pre><code>muerto: corpse, dead body
-muerte: death</code></pre><h3 id="impacto-de-SARS"><a href="#impacto-de-SARS" class="headerlink" title="impacto de SARS"></a>impacto de SARS</h3><p>es difícil comparar esta enfermedad con el SARS, es más leve, <code>la forma en que</code> afecta el pulmón no <code>es como la</code> del SARS. Sin embargo, la naturaleza más leve del virus también puede ser motivo de preocupación.<br>Según diversos <code>estudios académicos</code>, la falta de transparencia en el brote de 2002-2003 <code>perjudicó</code> la posición de China en el <code>escenario internacional</code> y provocó que su crecimiento económico se desacelerara.<br> El brote de SARS <code>fue visto</code> como un <code>catalizador</code> para el cambio en el sistema médico de China y el gasto en salud aumentó posteriormente.<br>según cuenta el servicio chino de la BBC; antes de 2003, los médicos solían reportar enfermedades infeccionsas llenando tarjetas a mano y luego enviándolas por fax a una oficina central.<br>Despúes del SARS, el gobierno creó un sisitema <code>centralizado en línea</code> que conecta clínicas y hospitales en todo el país y les permite informar casos en tempo real.<br>lo que <code>tomó meses</code> durante el tiempo de SARS ahora es cuestión de semanas o días. dijo en una conferencia de prensa a principois de esta semana.</p>
+muerte: death
+</code></pre><h3 id="impacto-de-SARS"><a href="#impacto-de-SARS" class="headerlink" title="impacto de SARS"></a>impacto de SARS</h3><p>es difícil comparar esta enfermedad con el SARS, es más leve, <code>la forma en que</code> afecta el pulmón no <code>es como la</code> del SARS. Sin embargo, la naturaleza más leve del virus también puede ser motivo de preocupación.<br>Según diversos <code>estudios académicos</code>, la falta de transparencia en el brote de 2002-2003 <code>perjudicó</code> la posición de China en el <code>escenario internacional</code> y provocó que su crecimiento económico se desacelerara.<br> El brote de SARS <code>fue visto</code> como un <code>catalizador</code> para el cambio en el sistema médico de China y el gasto en salud aumentó posteriormente.<br>según cuenta el servicio chino de la BBC; antes de 2003, los médicos solían reportar enfermedades infeccionsas llenando tarjetas a mano y luego enviándolas por fax a una oficina central.<br>Despúes del SARS, el gobierno creó un sisitema <code>centralizado en línea</code> que conecta clínicas y hospitales en todo el país y les permite informar casos en tempo real.<br>lo que <code>tomó meses</code> durante el tiempo de SARS ahora es cuestión de semanas o días. dijo en una conferencia de prensa a principois de esta semana.</p>
 <h3 id="las-falencias"><a href="#las-falencias" class="headerlink" title="las falencias"></a>las falencias</h3><p>Sin embargo, el nuevo brote también ha mostrado <code>falencias</code>(shortcoming) en el sistema de salud que han llevado a la propagación del nuevo virus.<br>ya en 2006, se alertó que era crucial el saneamiento(sanitation) de los mercados de China, mal administrados, <code>insalubres</code> (unhealth) y una fuente peligrosa de posibles nuevas infecciones.<br>Sin embargo, la <code>situación sanitaria</code> del mercado de Wuhan, donde se venden anmiales como ratas cachorros de lobo, serpientes y civeetas, parece estar detrás del nuevo brote. </p>
 
             </div>
@@ -431,6 +432,45 @@ muerte: death</code></pre><h3 id="impacto-de-SARS"><a href="#impacto-de-SARS" cl
 
 
 
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
 
 
 

@@ -237,8 +237,6 @@
 </blockquote>
 <p>注意： 在多个if…else…语句中，如果一个条件成立了就不会继续向下执行了。所以需要 避免定义条件有<code>重合部分</code>.</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> age = <span class="hljs-number">20</span>;<br><span class="hljs-keyword">if</span> (age &gt;= <span class="hljs-number">6</span>) &#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'teenager'</span>);<br>&#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (age &gt;= <span class="hljs-number">18</span>) &#123; <br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'adult'</span>); <span class="hljs-comment">//大于6与大于18条件重合，所以当满足大于6的条件以后不会继续向下执行</span><br>&#125; <span class="hljs-keyword">else</span> &#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'kid'</span>);<br>&#125;   <span class="hljs-comment">//此语句结果为 teenager</span><br></code></pre></td></tr></table></figure>
-
-
 <h2 id="2-2-循环语句"><a href="#2-2-循环语句" class="headerlink" title="2.2 循环语句"></a>2.2 循环语句</h2><ul>
 <li>for (i=1; i&lt;=10000; i++){code} (与C语言比较类似）</li>
 <li>数组内索引：对于长度可以使用 <code>i&lt;数组.length</code></li>
@@ -249,7 +247,6 @@
 </li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> x = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">var</span> i;<br><span class="hljs-keyword">for</span> (i=<span class="hljs-number">1</span>; i&lt;=<span class="hljs-number">10000</span>; i++) &#123;<br>    x = x + i;<br>&#125;<br>x; <span class="hljs-comment">// 50005000</span><br><br><span class="hljs-comment">//数组索引</span><br><span class="hljs-keyword">var</span> arr = [<span class="hljs-string">'Apple'</span>, <span class="hljs-string">'Google'</span>, <span class="hljs-string">'Microsoft'</span>];<br><span class="hljs-keyword">var</span> i, x;<br><span class="hljs-keyword">for</span> (i=<span class="hljs-number">0</span>; i&lt;arr.length; i++) &#123;<br>    x = arr[i];<br>    <span class="hljs-built_in">console</span>.log(x);<br><br><span class="hljs-keyword">var</span> a = [<span class="hljs-string">'A'</span>, <span class="hljs-string">'B'</span>, <span class="hljs-string">'C'</span>];<br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i <span class="hljs-keyword">in</span> a) &#123;<br>    <span class="hljs-built_in">console</span>.log(i); <span class="hljs-comment">// '0', '1', '2' 注意格式是string</span><br>    <span class="hljs-built_in">console</span>.log(a[i]); <span class="hljs-comment">// 'A', 'B', 'C'</span><br>&#125;<br><br><span class="hljs-comment">// 对象内属性名称索引</span><br><span class="hljs-keyword">var</span> o = &#123;<br>    <span class="hljs-attr">name</span>: <span class="hljs-string">'Jack'</span>,<br>    <span class="hljs-attr">age</span>: <span class="hljs-number">20</span>,<br>    <span class="hljs-attr">city</span>: <span class="hljs-string">'Beijing'</span><br>&#125;;<br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> key <span class="hljs-keyword">in</span> o) &#123;<br>    <span class="hljs-built_in">console</span>.log(key); <span class="hljs-comment">// 'name', 'age', 'city'</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
 <ul>
 <li>如果需要过滤掉对象的<code>继承</code>属性，只保留此对象自己的属性，可以使用<code>hasOwnProperty()</code></li>
 </ul>
@@ -441,6 +438,45 @@
 
 
 
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
 
 
 

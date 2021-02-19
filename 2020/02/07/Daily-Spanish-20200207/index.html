@@ -227,7 +227,7 @@
             <h1 style="display: none">Daily Spanish 20200207</h1>
             
             <div class="markdown-body">
-              <h2 id=""><a href="#" class="headerlink" title=""></a></h2><h3 id="El-fallecido-de-un-doctor"><a href="#El-fallecido-de-un-doctor" class="headerlink" title="El fallecido de un doctor"></a>El fallecido de un doctor</h3><p>Las <code>autoridades sanitarias</code> chinas finalmente confirmaron que el joven médico Li Wenliang <code>falleció</code> en la madrugada del jueves al viernes. </p>
+              <h2 id=""><a href="#" class="headerlink" title=" "></a> </h2><h3 id="El-fallecido-de-un-doctor"><a href="#El-fallecido-de-un-doctor" class="headerlink" title="El fallecido de un doctor"></a>El fallecido de un doctor</h3><p>Las <code>autoridades sanitarias</code> chinas finalmente confirmaron que el joven médico Li Wenliang <code>falleció</code> en la madrugada del jueves al viernes. </p>
 <p>Li, de 34 años, murió <code>tras contagiarse</code> del nuevo coronavirus, según declaró el hospital que lo atendía. EL joven médico, uno de los primeros en <code>alertar sobre</code> el nuevo virus.  </p>
 <p>lo dolencia causa una infección aguda respiratoria, los síntomas habitualmente <code>comienzan con</code> fibre, <code>seguida de</code> tos seca.  la mayoría de la gente que contrae el virus se recupere, <code>tal y como</code> lo harían con otra gripe.</p>
 <blockquote>
@@ -432,6 +432,45 @@
 
 
 
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
 
 
 

@@ -230,8 +230,8 @@
               <h2 id="La-prevalencia-de-autolesiones"><a href="#La-prevalencia-de-autolesiones" class="headerlink" title="La prevalencia de autolesiones"></a>La prevalencia de autolesiones</h2><p>Una de las razones podrían ser las <code>temidas</code> redes sociales. Las nuevas tecnologías han <code>potenciado</code> las autolesiones no suicidas <code>por contagio</code>, que incluso han generado modas de autolesionarse.</p>
 <blockquote>
 <p>temidas: fearful<br>potenciar: strengthen El objetivo de la capacitación es potenciar las habilidades de los empleados.</p>
-</blockquote>
 <p>A través de las redes sociales hay una <code>tendencia al exhibicionismo</code>, a mostrar todo lo que uno hace. hasta sus estados emocionales más profundos.</p>
+</blockquote>
 <p>Así las cosas, cuando un padre descubre que su hijo o hija se autolesiona, <code>el mundo se le cae encima</code>. Y el sentimiento de culpa, también. No hay motivos para sentirse culpable y sí muchas cosas que entender del comportamiento del pequeño.</p>
 <p>Es pobable que <code>sientan mucha soledad</code>,<br>suele practicarse cuando están solos y <code>experimentan ideas</code> o emociones negativas, y suele haber un <code>acontecimiento</code> externo que lo intensifica.</p>
 <blockquote>
@@ -420,6 +420,45 @@
 
 
 
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
 
 
 
