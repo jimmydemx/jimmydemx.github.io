@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="James Wu">
   <meta name="keywords" content="">
-  <title>Tal vez Mañana_2 - Hexo</title>
+  <title>Vue| Component Communication 1 - Hexo</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Tal vez Mañana_2">
+            <span class="h2" id="subtitle" title="Vue| Component Communication 1">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-02-17 15:21" pubdate>
-        2021年2月17日 下午
+      <time datetime="2021-02-25 15:21" pubdate>
+        2021年2月25日 下午
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      267 字
+      101 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      5
+      2
        分钟
     </span>
   
@@ -224,18 +224,16 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Tal vez Mañana_2</h1>
+            <h1 style="display: none">Vue| Component Communication 1</h1>
             
             <div class="markdown-body">
-              <p>Luego me toco el cuerpo, como si el bolso fuera a aparecer como por parte de magia. Sé exactamente dónde está. Me lo quité del hombro y lo tiré al suelo justo antes de atizarle un puñetazo a Tori.</p>
-<p>Sé que hay un hotel a poco más de medio kilómetro de aquí. Me quedaré en una habitación hasta que decida qué hacer. </p>
-<p>Ya estoy empapada. El taxista vuelve a sacar las maletas, las deja en la acera justo delante de mí y se dirige de nuevo a la puerta del conductor sin mirarme, como si mi cambio de idea le supusiera un alivio.</p>
-<p>Ne siento encima de la maleta analizo la situación. Me avergüenza demasiado contarle a cualquiera lo ingenua que he sido durante los dos últimos años, He vivido completamente engañada. Es todo tan asquerosamente patético que estoy.</p>
-<p>Levanto la vista y veo a una chica justo encima de mí. Se cubre la cabeza con un paraguas y me mira con inquietud.Su tono es un poco autoritario, como si me estuviera haciendo un favor y yo me mostrase desagradecida. Me agarra de una mano y me levanta de un tirón. Coge una de mis maletas, saca el asa y la empuja hacia mí. Luego se apropia de la otra y cruza el patio con paso decidido. La sigo. </p>
-<p>Cuando empieza a subir la escalera, se vuelve para gritarme por encima del hombro.</p>
-<ul>
-<li>No sé cuánto tiempo vas a quedarte, pero solo tengo una norma, ni se te ocurra entrar en mi habitación.</li>
-</ul>
+              <h1 id="1-Component-Communication-in-Vue-Js"><a href="#1-Component-Communication-in-Vue-Js" class="headerlink" title="1. Component Communication in Vue.Js"></a>1. Component Communication in Vue.Js</h1><h2 id="1-1-Setup-environment-for-Vue"><a href="#1-1-Setup-environment-for-Vue" class="headerlink" title="1.1 Setup environment for Vue"></a>1.1 Setup environment for Vue</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo npm install @vue/cli -g<br>sudo npm install -g @vue/cli-service-global<br>vue serve App.vue<br></code></pre></td></tr></table></figure>
+<h3 id="create-main-js"><a href="#create-main-js" class="headerlink" title="create main.js"></a>create <code>main.js</code></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span>;<br><span class="hljs-keyword">import</span> App <span class="hljs-keyword">from</span> <span class="hljs-string">'./App'</span><br><span class="hljs-keyword">new</span> Vue(&#123;<br>     <span class="hljs-attr">el</span>:<span class="hljs-string">'#app'</span>,<br>    <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-params">h</span>=&gt;</span> h(App)<br>&#125;)<br></code></pre></td></tr></table></figure>
+<h3 id="createApp-vue"><a href="#createApp-vue" class="headerlink" title="createApp.vue"></a>create<code>App.vue</code></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;template&gt;<br>    &lt;div&gt;<br>        App123<br>    &lt;&#x2F;div&gt;<br>&lt;&#x2F;template&gt;<br></code></pre></td></tr></table></figure>
+<h2 id="2-component-hierarchy"><a href="#2-component-hierarchy" class="headerlink" title="2. component hierarchy"></a>2. component hierarchy</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs tree">components<br>├──Father.vue   <br>   ├──  Son1.vue    <br>      ├── Grandson1.vue<br>   ├── Son2.vue    <br>       └── Grandson2.vue<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>how to define a parent and children component?<br>children components are registered in fathter component; consequently form parts of the tempplate in father component.</p>
+</blockquote>
 
             </div>
             <hr>
@@ -245,11 +243,11 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Books/">Books</a>
+                      <a class="hover-with-bg" href="/categories/Computer-Science/">Computer Science</a>
                     
-                      <a class="hover-with-bg" href="/categories/Books/Spanish/">Spanish</a>
+                      <a class="hover-with-bg" href="/categories/Computer-Science/FrontEnd/">FrontEnd</a>
                     
-                      <a class="hover-with-bg" href="/categories/Books/Spanish/TVM/">TVM</a>
+                      <a class="hover-with-bg" href="/categories/Computer-Science/FrontEnd/Vue/">Vue</a>
                     
                   </div>
                 
@@ -257,7 +255,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Spanish-learning/">Spanish learning</a>
+                      <a class="hover-with-bg" href="/tags/Youtube-English/">Youtube, English</a>
                     
                   </div>
                 
@@ -270,18 +268,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/02/17/Tal-vez-manana/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Tal vez Mañana</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/02/17/Tal-vez-manana_3/">
-                        <span class="hidden-mobile">Tal vez Mañana_3</span>
+                      <a href="/2021/02/17/Tal-vez-manana/">
+                        <span class="hidden-mobile">Tal vez Mañana</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
