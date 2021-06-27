@@ -1,0 +1,999 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="James Wu">
+  <meta name="keywords" content="">
+  
+  <title>Hexo</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"jcwu.ml","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+  <header style="height: 100vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>JamesWu's</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Time to get to know James!">
+              
+            </span>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div class="py-5" id="board"
+          style=margin-top:0>
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/02/12/Frontend%E5%AE%9E%E4%BE%8B1/" target="_self">
+          Frontend实例1
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/02/12/Frontend%E5%AE%9E%E4%BE%8B1/" target="_self">
+          
+          
+            
+          
+          
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-02-12 22:12" pubdate>
+              2020-02-12
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/02/12/Daily-Spanish-20200212/" target="_self">
+          Daily Spanish 20200212
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/02/12/Daily-Spanish-20200212/" target="_self">
+          
+          
+            
+          
+          Por qué son tan feroces y otras claves para entender lo que está ocurriendo en el paísAustralia está viviendo una de sus peores temporadas de incendios forestales.Hay las volatiles condicionespodríani
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-02-12 18:17" pubdate>
+              2020-02-12
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/02/11/Daily-Spanish-20200211/" target="_self">
+          Daily Spanish 20200211
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/02/11/Daily-Spanish-20200211/" target="_self">
+          
+          
+            
+          
+          Un sitio web ha engañado a 22 mujeresGirlsDoPorn la página web condenada pagar más de US12 millones por engañar a mujeres para actuar en videos porno. 
+Les prometieron que los videos pornográficos que
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-02-11 14:42" pubdate>
+              2020-02-11
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/02/10/Daily-Spanish-20200210/" target="_self">
+          Daily Spanish 20200210
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/02/10/Daily-Spanish-20200210/" target="_self">
+          
+          
+            
+          
+          “Parasite” en los Oscar 2020: así viven los surcoreanos que habitan en los semisótanos de Seúl que retrata la película
+semisótanos: daylight basement;  sótano: basementretratar: depict
+
+Parasite es un
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-02-10 10:26" pubdate>
+              2020-02-10
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/02/09/Daily-Spanish-20200209/" target="_self">
+          Daily Spanish 20200209
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/02/09/Daily-Spanish-20200209/" target="_self">
+          
+          
+            
+          
+          Oscar 2020: Qué película ganará？Según han reseñado expertos, la competencia en los premios Oscar está reñida.
+
+la competenica está reñida: it is a tough competition 
+
+Alrededor de 9,000 miembros de Ho
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-02-09 20:17" pubdate>
+              2020-02-09
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/02/08/Daily-Spanish-20200208/" target="_self">
+          Daily Spanish 20200208
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/02/08/Daily-Spanish-20200208/" target="_self">
+          
+          
+            
+          
+          La abrupta caída de la natalidad en China y por qué es una amenaza para su poderosa economía
+amenaza para…descenso,frenar,revertir
+
+La tasa de natalidad del gigante asiático cayó a su nivel más bajo d
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-02-08 08:58" pubdate>
+              2020-02-08
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/02/07/JavaScript%E6%9D%A1%E4%BB%B6%E4%B8%8E%E5%BE%AA%E7%8E%AF/" target="_self">
+          JavaScript条件与循环
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/02/07/JavaScript%E6%9D%A1%E4%BB%B6%E4%B8%8E%E5%BE%AA%E7%8E%AF/" target="_self">
+          
+          
+            
+          
+          2 JavaScript条件判断以及循环2.1 if语句
+if(x) {code;code;….} else {code;code;…}
+
+123456var age = 20;if (age &gt;= 18) &#123; // 如果age &gt;= 18为true，则执行if语句块    alert('adult');&#125; else &#123; // 否则执行else语句块   
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-02-07 23:25" pubdate>
+              2020-02-07
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/02/07/Daily-Spanish-20200207/" target="_self">
+          Daily Spanish 20200207
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/02/07/Daily-Spanish-20200207/" target="_self">
+          
+          
+            
+          
+           El fallecido de un doctorLas autoridades sanitarias chinas finalmente confirmaron que el joven médico Li Wenliang falleció en la madrugada del jueves al viernes. 
+Li, de 34 años, murió tras contagiar
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-02-07 16:33" pubdate>
+              2020-02-07
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Espanol/">Español</a>
+            
+              <a href="/tags/Lectura/">Lectura</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/02/07/Daily-Spanish-20200206/" target="_self">
+          Daily Spanish 20200206
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/02/07/Daily-Spanish-20200206/" target="_self">
+          
+          
+            
+          
+          ¿por qué las laptaps van camino a su desaparición?Es difícil saber a cuántos afecta la medida que Microsoft dejará de dar soporte a su sistema operativo Windows 7. Así que es obsoletas y tierra fértil
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-02-07 16:33" pubdate>
+              2020-02-07
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Espanol/">Español</a>
+            
+              <a href="/tags/Lectura/">Lectura</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/02/05/Daily-Spanish-20200205/" target="_self">
+          Daily Spanish 20200205
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/02/05/Daily-Spanish-20200205/" target="_self">
+          
+          
+            
+          
+          123Alice-&gt;Bob: Hello Bob, how are you?Note right of Bob: Bob thinksBob--&gt;Alice: I am good thanks!
+123456789101112%% Example of sequence diagram  sequenceDiagram    Alice-&gt;&gt;Bob: Hello Bob, 
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-02-05 22:49" pubdate>
+              2020-02-05
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Espanol/">Español</a>
+            
+              <a href="/tags/Lectura/">Lectura</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/02/05/JavaScript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%95%B4%E7%90%86/" target="_self">
+          JavaScript数据类型整理(1)
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/02/05/JavaScript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%95%B4%E7%90%86/" target="_self">
+          
+          
+            
+          
+          1 JavaScript的数据类型1.1 一般数据Javascript不区分整数和浮点数（数据类型一致），表示2进制，8进制以及16进制的方法与C语言一致123456123; // 整数1230.456; // 浮点数0.4561.2345e3; // 科学计数法表示1.2345x1000，等同于1234.5-99; // 负数NaN; // NaN表示Not a Number，当无法计算结果时用
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-02-05 22:33" pubdate>
+              2020-02-05
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E4%B8%AD%E6%96%87/">中文</a>
+            
+              <a href="/categories/%E4%B8%AD%E6%96%87/%E8%AE%A1%E7%AE%97%E6%9C%BA/">计算机</a>
+            
+              <a href="/categories/%E4%B8%AD%E6%96%87/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%89%8D%E7%AB%AF/">前端</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/JavaScript/">JavaScript</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/02/04/Daily-Spanish-20200204/" target="_self">
+          Daily Spanish 20200204
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/02/04/Daily-Spanish-20200204/" target="_self">
+          
+          
+            
+          
+          impacto de SARS y el vínculo con el virus actual@(Coronavirus)[SARS|Wuhan|insalubre]
+en 2002 un brote de otro coronavirus, dejó cientos de muertos。
+muerto: corpse, dead body
+muerte: death
+impacto de S
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-02-04 14:55" pubdate>
+              2020-02-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Daily-Spanish/">Daily Spanish</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Espanol/">Español</a>
+            
+              <a href="/tags/Lectura/">Lectura</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/02/03/Daily-Spanish-20200203/" target="_self">
+          Daily Spanish 20200203
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/02/03/Daily-Spanish-20200203/" target="_self">
+          
+          
+            
+          
+          ¿Por qué la masiva cuarentena en China ¨creará más problemas de los que resuelve¨?(https://www.bbc.com/mundo/noticias-51357804)
+
+registrar…casos, gravedad, confinado, previnir la propagación.poner en 
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-02-03 23:12" pubdate>
+              2020-02-03
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Daily-Spanish/">Daily Spanish</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Espanol/">Español</a>
+            
+              <a href="/tags/Lectura/">Lectura</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/02/03/JavaScript%E4%B8%AD%E7%9A%84this/" target="_self">
+          JavaScript中的this
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/02/03/JavaScript%E4%B8%AD%E7%9A%84this/" target="_self">
+          
+          
+            
+          
+          7.0 你所有需要知道的关于Javascript中的this
+执行环境(execution context):  
+
+全局执行环境在任何代码执行前已创建
+但执行一个函数（function）时候，会创造一个新的执行环境，此时存在一个memory creation 阶段包含：
+A. Scope创建： 哪些变量（variable）或者函数（function）是此执行环境可以用到的，Hoist
+B. Sc
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-02-03 17:43" pubdate>
+              2020-02-03
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E4%B8%AD%E6%96%87/">中文</a>
+            
+              <a href="/categories/%E4%B8%AD%E6%96%87/%E8%AE%A1%E7%AE%97%E6%9C%BA/">计算机</a>
+            
+              <a href="/categories/%E4%B8%AD%E6%96%87/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%89%8D%E7%AB%AF/">前端</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/JavaScript/">JavaScript</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/01/28/Pilot/" target="_self">
+          Pilot
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/01/28/Pilot/" target="_self">
+          
+          
+            
+          
+          MVVM 框架使用AJAX，不用刷新页面进行数据内容修改，典型MVVM框架有 Angular.js, react.js,vue.js.
+vue.js: https://cn.vuejs.org/index.html
+数据驱动+组件化: vue.js 的社区比较完善Vue.js 的核心思想
+![]file:///private/var/folders/bw/ql08q7s902lfdc_vyfbq0
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-01-28 18:36" pubdate>
+              2020-01-28
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E4%B8%AD%E6%96%87/">中文</a>
+            
+              <a href="/tags/AJAX/">AJAX</a>
+            
+              <a href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>
+            
+              <a href="/tags/Vue/">Vue</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <a class="extend prev" rel="prev" href="/page/6/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/#board">5</a><a class="page-number" href="/page/6/#board">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/#board">8</a><a class="extend next" rel="next" href="/page/8/#board"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
