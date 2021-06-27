@@ -255,7 +255,7 @@
 <li>两者区别是do是先循环，在判断条件，而while是先判断条件，再循环。</li>
 <li>使用do while要提前考虑一下。d第一次do以后产生的结果。</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//while 先判断条件</span><br><span class="hljs-keyword">var</span> x = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">var</span> n = <span class="hljs-number">99</span>;<br><span class="hljs-keyword">while</span> (n &gt; <span class="hljs-number">0</span>) &#123;<br>    x = x + n;<br>    n = n - <span class="hljs-number">2</span>;<br>x; <span class="hljs-comment">// 2500</span><br><br><span class="hljs-comment">// do...while 先循环一次</span><br><span class="hljs-keyword">var</span> n = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">do</span> &#123;<br>    n = n + <span class="hljs-number">1</span>;<br>&#125; <span class="hljs-keyword">while</span> (n &lt; <span class="hljs-number">100</span>);<br>n; <span class="hljs-comment">// 100</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//while 先判断条件</span><br><span class="hljs-keyword">var</span> x = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">var</span> n = <span class="hljs-number">99</span>;<br><span class="hljs-keyword">while</span> (n &gt; <span class="hljs-number">0</span>) &#123;<br>    x = x + n;<br>    n = n - <span class="hljs-number">2</span>;<br>x; <span class="hljs-comment">// 2500</span><br><br><span class="hljs-comment">// do...while 先循环一次</span><br><span class="hljs-keyword">var</span> n = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">do</span> &#123;<br>    n = n + <span class="hljs-number">1</span>;<br>&#125; <span class="hljs-keyword">while</span> (n &lt; <span class="hljs-number">100</span>);<br>n; <span class="hljs-comment">// 100</span><br>&#125;<br></code></pre></td></tr></table></figure><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
             </div>
             <hr>
             <div>
@@ -292,6 +292,32 @@
               
             </div>
 
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      var disqus_config = function() {
+        this.page.url = 'http://jcwu.ml/2020/02/07/JavaScript%E6%9D%A1%E4%BB%B6%E4%B8%8E%E5%BE%AA%E7%8E%AF/';
+        this.page.identifier = '/2020/02/07/JavaScript%E6%9D%A1%E4%BB%B6%E4%B8%8E%E5%BE%AA%E7%8E%AF/';
+      };
+      Fluid.utils.waitElementVisible('disqus_thread', function () {
+        var d = document, s = d.createElement('script');
+        s.src = '//' + '' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', new Date());
+        (d.head || d.body).appendChild(s);
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the
+      <a href="https://disqus.com/?ref_noscript" target="_blank" rel="nofollow noopener noopener">comments powered by Disqus.</a>
+    </noscript>
+  </div>
+
+
+              </article>
             
           </article>
         </div>
